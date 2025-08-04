@@ -2,7 +2,7 @@ name: Cron Jobs Planifiés
 
 on:
   schedule:
-    - cron: '0 0 * * *'       # Tous les jours à minuit (UTC)
+    - cron: '21 2 * * *'       # Tous les jours à minuit (UTC)
     - cron: '0 0 * * 1'       # Tous les lundis à minuit (UTC)
     - cron: '0 0 1 * *'       # Le 1er de chaque mois à minuit (UTC)
 
