@@ -1,0 +1,34 @@
+name: 
+
+on:
+  workflow_dispatch:  # Déclenchement manuel
+
+jobs:
+  job_hamza1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo Job 1
+        run: echo "HAMZA_JOB1"
+
+  job_hamza2:
+    needs: job_hamza1
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo Job 2
+        run: echo "HAMZA_JOB2"
+
+  job_hamza3:
+    needs: job_hamza1
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo Job 3
+        run: echo "HAMZA_JOB3"
+
+  job_hamza4:
+    needs: 
+      - job_hamza2
+      - job_hamza3
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo Job 4
+        run: echo "HAMZA_JOB4"
