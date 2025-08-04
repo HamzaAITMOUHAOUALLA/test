@@ -1,0 +1,29 @@
+name: Cron Jobs Planifiés
+
+on:
+  schedule:
+    - cron: '0 0 * * *'       # Tous les jours à minuit (UTC)
+    - cron: '0 0 * * 1'       # Tous les lundis à minuit (UTC)
+    - cron: '0 0 1 * *'       # Le 1er de chaque mois à minuit (UTC)
+
+jobs:
+  debut_jour:
+    if: github.event.schedule == '0 0 * * *'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Tâche quotidienne
+        run: echo " Début d'une nouvelle journée !"
+
+  debut_semaine:
+    if: github.event.schedule == '0 0 * * 1'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Tâche hebdomadaire
+        run: echo " Début d'une nouvelle semaine !"
+
+  debut_mois:
+    if: github.event.schedule == '0 0 1 * *'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Tâche mensuelle
+        run: echo "🗓️ Début d'un nouveau mois !"
