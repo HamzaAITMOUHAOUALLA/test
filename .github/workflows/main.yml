@@ -1,20 +1,17 @@
-name: First Workflow
+name: Affichage Push/Commit
 
 on:
   push:
     branches:
-      - main
+      - "**"  # Toutes les branches
 
 jobs:
-  example-job:
+  afficher_commit:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Print a welcome message
-        run: echo "Welcome to our first GitHub Actions Workflow!"
-
-      - name: Checkout repository
-        uses: actions/checkout@v4.2.2
-
-      - name: List repository files
-        run: ls -la
+      - name: Affichage du commit
+        run: |
+          echo " Nouveau push détecté !"
+          echo " Auteur : ${{ github.actor }}"
+          echo " Message du commit : ${{ github.event.head_commit.message }}"
+          echo " Branche : ${{ github.ref }}"
