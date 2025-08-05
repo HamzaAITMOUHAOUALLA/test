@@ -1,5 +1,5 @@
 on:
-  workflow_dispatch:  # Déclenchement manuel
+  workflow_dispatch:
 
 jobs:
   travail_hybride:
@@ -9,11 +9,11 @@ jobs:
         run: echo "Ceci s'exécute dans la VM Ubuntu"
 
       - name: Exécuter à l'intérieur d'un conteneur Alpine
-        uses: docker://alpine:3.14  # L'image doit être accessible sans authentification
+        uses: docker://alpine:3.14
         with:
           entrypoint: /bin/sh
           args: |
-            -c "echo 'Cette étape s'exécute dans un conteneur Alpine'"
+            -c "echo \"Cette étape s'exécute dans un conteneur Alpine\""
 
       - name: Exécuter une autre commande dans la VM Ubuntu
         run: echo "Retour à la VM"
