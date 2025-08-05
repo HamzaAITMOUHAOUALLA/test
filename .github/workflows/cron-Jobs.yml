@@ -2,7 +2,7 @@ name: Cron Début de Journée
 
 on:
   schedule:
-    - cron: '38 1 * * *' # Tous les jours à 00:00 UTC
+    - cron: '38 00 * * *' # Tous les jours à 00:00 UTC
 
 jobs:
   job_debut_jour:
